@@ -1,43 +1,46 @@
+#define ll long long
+
 class Solution {
 public:
 
-    bool solve(long long& mid, vector<int>& candies, long long& k)
+    bool solve(vector<int>& a, ll mid, ll k)
     {
-        long long cnt = 0;
+        ll cnt = 0;
+        ll n = a.size();
 
-        for(auto it : candies)
+        for(ll i = 0; i<n; i++)
         {
-            if(it >= mid)
+            if(a[i] >= mid)
             {
-                cnt += it/mid;
+                cnt += a[i]/mid;
             }
         }
 
-        return cnt >= k;
+        return cnt >=k;
     }
 
-
     int maximumCandies(vector<int>& candies, long long k) {
-        long long low = 1;
-        long long high = *max_element(candies.begin(), candies.end());
-        long long mid;
+        ll l = 1;
+        ll r = *max_element(candies.begin(), candies.end());
 
 
-        long long maxi = 0;
+        ll maxi = 0;
 
-        while(low<=high)
-        {   
-            long long mid = low + (high-low)/2;
-            if(solve(mid, candies, k))
+        while(l<=r)
+        {
+            ll mid = l + (r-l)/2;
+            if(solve(candies, mid, k))
             {
                 maxi = mid;
-                low = mid+1;
+                l = mid +1;
             }
             else{
-                high = mid -1;
+                r = mid -1;
             }
         }
 
         return maxi;
+
+
     }
 };
