@@ -10,10 +10,11 @@ public:
 
         for(ll i = 0; i<n; i++)
         {
-            if(a[i] >= mid)
-            {
-                cnt += a[i]/mid;
-            }
+            // if(a[i] >= mid)
+            // {
+            //     cnt += a[i]/mid;
+            // }
+            cnt += a[i]/mid;
         }
 
         return cnt >=k;
