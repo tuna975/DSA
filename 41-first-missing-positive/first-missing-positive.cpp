@@ -3,15 +3,15 @@ public:
     int firstMissingPositive(vector<int>& nums) {
         sort(nums.begin(), nums.end());
 
-        int target = 1;
+        int el = 1;
         for (int n : nums) {
-            if (n > 0 && n == target) {
-                target++;
-            } else if (n > target) {
-                return target;
+            if (n > 0 && n == el) {
+                el++;
+            } else if (n > el) {
+                return el;
             }
         }
 
-        return target;
+        return el;
     }
 };
