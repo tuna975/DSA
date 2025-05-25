@@ -5,10 +5,16 @@ class Solution {
     ll solve(ll a,ll b){
         ll res = 1;
         while(b){
-            if(b&1)
-                res = (res * a) % MOD;
-            a = (a*a) % MOD;
+            if(b&1){
+                 res = (res * a) % MOD;
+                 b = b-1;
+            }
+            else{
+                 a = (a*a) % MOD;
             b /= 2;
+            }
+               
+           
         }
         return res;
     }
